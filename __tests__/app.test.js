@@ -30,13 +30,20 @@ describe('03_separation-of-concerns-demo routes', () => {
     });
 
     it('gets all orders', async () => {
+        await request(app).post('/api/v1/orders').send({ quantity: 10 });
         return request(app)
             .get('/api/v1/orders')
             .then((res) => {
-                expect(res.body).toEqual({
-                    id: '1',
-                    quantity: 10,
-                });
+                expect(res.body).toEqual([
+                    {
+                        id: '1',
+                        quantity: 10,
+                    },
+                    {
+                        id: '2',
+                        quantity: 10,
+                    },
+                ]);
             });
     });
 });
