@@ -5,5 +5,5 @@ CREATE TABLE orders (
   quantity INTEGER CHECK (quantity > 0)
 );
 
--- INSERT INTO orders (quantity)
---   VALUES (10);
+INSERT INTO orders (quantity)
+  VALUES (10);
